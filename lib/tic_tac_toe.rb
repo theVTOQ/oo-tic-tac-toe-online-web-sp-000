@@ -64,4 +64,29 @@ class TicTacToe
     player = turn_count(@board) % 2 == 0 ? "X" : "O"
     return player
   end
+
+  def won?
+
+    WIN_COMBINATIONS.each do |win_combo|
+      pos_1 = @board[win_combo[0]]
+      pos_2 = @board[win_combo[1]]
+      pos_3 = @board[win_combo[2]]
+
+      x_wins = pos_1 == "X" && pos_2 == "X" && pos_3 == "X"
+      y_wins = pos_1 == "O" && pos_2 == "O" && pos_3 == "O"
+
+      if x_wins || y_wins
+        return win_combo
+      else
+        false
+      end
+    end
+
+    return nil
+  end
+
+  def full?
+    @board.none? {|i| i == "   " || i == " " || i == "" || i == nil}
+  end
+
 end
