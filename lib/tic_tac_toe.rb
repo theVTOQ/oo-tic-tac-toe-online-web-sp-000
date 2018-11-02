@@ -89,4 +89,8 @@ class TicTacToe
     @board.none? {|i| i == "   " || i == " " || i == "" || i == nil}
   end
 
+  def draw?
+    !won? && full?
+  end
+
 end
