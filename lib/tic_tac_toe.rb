@@ -114,17 +114,17 @@ class TicTacToe
     won? || full?
   end
 
-  def winner(board)
-  if board.empty?
-    return nil
-  end
-
-  winning_combo = won?(board)
-    if winning_combo != nil
-      return board[winning_combo[0]]
-    else
+  def winner
+    if @board.empty?
       return nil
     end
+
+    winning_combo = won?
+      if winning_combo != nil
+        return @board[winning_combo[0]]
+      else
+        return nil
+      end
   end
 
 end
