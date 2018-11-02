@@ -5,7 +5,7 @@ class TicTacToe
 
   def play(board)
     turn_count = 0
-    until over? || draw?
+    until turn_count == 9 || over? || draw?
       turn_count += 1
       turn
     end
