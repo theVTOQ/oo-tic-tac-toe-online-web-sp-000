@@ -49,4 +49,14 @@ class TicTacToe
       turn
     end
   end
+
+  def turn_count
+    total = 0
+    board.each do |entry|
+      if !(entry == "   " || entry == " ")
+        total += 1
+      end
+    end
+    total
+  end
 end
