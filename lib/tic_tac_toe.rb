@@ -3,6 +3,22 @@ class TicTacToe
     @board = Array.new(9, " ")
   end
 
+  def play(board)
+    turn_count = 0
+    until over? || draw?
+      turn_count += 1
+      turn
+    end
+
+    if draw?
+      puts "Cat's Game!"
+    else
+      winning_player = winner
+      puts "Congratulations #{winning_player}!"
+    end
+
+  end
+
   WIN_COMBINATIONS = [
     [0,1,2],
     [3,4,5],
@@ -91,6 +107,24 @@ class TicTacToe
 
   def draw?
     !won? && full?
+  end
+
+  def over?
+    #no need to call draw? method here- it would be redundant
+    won? || full?
+  end
+
+  def winner(board)
+  if board.empty?
+    return nil
+  end
+
+  winning_combo = won?(board)
+    if winning_combo != nil
+      return board[winning_combo[0]]
+    else
+      return nil
+    end
   end
 
 end
