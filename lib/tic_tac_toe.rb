@@ -52,7 +52,7 @@ class TicTacToe
 
   def turn_count
     total = 0
-    board.each do |entry|
+    @board.each do |entry|
       if !(entry == "   " || entry == " ")
         total += 1
       end
