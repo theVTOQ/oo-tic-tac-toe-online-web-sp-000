@@ -3,7 +3,7 @@ class TicTacToe
     @board = Array.new(9, " ")
   end
 
-  def play(board)
+  def play
     turn_count = 0
     until turn_count == 9 || over? || draw?
       turn_count += 1
